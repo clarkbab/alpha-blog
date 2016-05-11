@@ -1,2 +1,73 @@
+$navbar-default-bg: #F09040;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+    border: none;
+    border-radius: 0px;
+}
+
+.btn {
+    border: none;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.jumbotron {
+    height: 550px;
+    background-image: asset-url('sahara.jpg');
+    background-size: cover;
+}
+
+.jumbotron h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn-xlarge {
+    font-size: 1.7em;
+    background-color: black;
+}
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #EAEAEA;
+    color: #777;
+}
+
+footer a:hover {
+    color: #222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
