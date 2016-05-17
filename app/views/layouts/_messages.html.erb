@@ -1,7 +1,10 @@
 <% if flash != nil %>
-    <ul>
+    <div class="container">
         <% flash.each do |name, msg| %>
-            <li><%= msg %></li>
+            <div class="alert alert-<%= name %>">
+                <a href="#" class="close" data-dismiss="alert">&#215</a>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            </div>
         <% end %>
-    </ul>
+    </div>
 <% end %>
