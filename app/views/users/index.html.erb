@@ -1,0 +1,14 @@
+<h1 class="page-title">Ruby Bloggers</h1>
+<% @users.each do |user| %>
+	<div class="user well">
+		<div class="row">
+			<div class="col-sm-2 icon">
+				<%= link_to gravatar_for(user), user_path(user) %>
+			</div>
+			<div class="col-sm-10 details">
+				<h2><%= link_to user.username, user_path(user) %></h2>
+				<span><%= pluralize(user.articles.count, "article") %></span>
+			</div>
+		</div>
+	</div>
+<% end %>
