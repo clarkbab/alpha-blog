@@ -1,5 +1,6 @@
 <h1 class="page-title">Ruby Bloggers</h1>
 <% @users.each do |user| %>
+	<%= will_paginate %>
 	<div class="user well">
 		<div class="row">
 			<div class="col-sm-2 icon">
@@ -11,4 +12,5 @@
 			</div>
 		</div>
 	</div>
+	<%= will_paginate %>
 <% end %>
