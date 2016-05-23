@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
-        @article.user = User.first
+        @article.user = current_user
         if @article.save
             flash[:success] = "Article was successfully created."
             redirect_to article_path(@article)
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
         end
 
         def require_access
-            if @article.user != current_user or current_user.admin?
+            if @article.user != current_user and !current_user.admin?
                 flash[:danger] = "You can only edit your own articles."
                 redirect_to article_path(@article)
             end
