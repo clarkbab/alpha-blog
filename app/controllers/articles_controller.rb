@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     
+    before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
+    before_action :require_creator, only: [:edit, :update, :destroy]
 
     def index
         @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -49,5 +51,12 @@ class ArticlesController < ApplicationController
 
         def article_params
             params.require(:article).permit(:title, :description)
+        end
+
+        def require_creator
+            if @article.user != current_user
+                flash[:danger] = "You can only edit your own articles."
+                redirect_to article_path(@article)
+            end
         end
 end
