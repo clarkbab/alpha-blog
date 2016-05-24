@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
         uniqueness: {
             case_sensitive: false
         }
+
+    before_save {
+        self.name = name.downcase
+    }
 end

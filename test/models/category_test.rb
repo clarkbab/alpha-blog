@@ -30,4 +30,11 @@ class CategoryTest < ActiveSupport::TestCase
         @category.name = "a" * 26
         assert_not @category.valid?
     end
+
+    test "should save names as lowercase" do
+        @category = Category.new(name: "Sports")
+        @category.save
+        category = Category.last
+        assert(category.name == "sports")
+    end
 end
